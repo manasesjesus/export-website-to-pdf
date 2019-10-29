@@ -1,0 +1,27 @@
+{
+  "name": "export-website-to-pdf",
+  "version": "1.0.0",
+  "description": "export websites to PDF",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/manasesjesus/export-website-to-pdf.git"
+  },
+  "keywords": [
+    "export",
+    "website",
+    "pdf"
+  ],
+  "author": "manasesjesus",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/manasesjesus/export-website-to-pdf/issues"
+  },
+  "homepage": "https://github.com/manasesjesus/export-website-to-pdf#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
