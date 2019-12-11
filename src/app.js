@@ -3,20 +3,28 @@
 const pdf = require("html-pdf");
 const requestify = require("requestify");
 
-var externalURL= "http://...";
 
+const config  = require("./config/config");
+const options = {
+    base: config.base,
+    format: config.format
+};
 
-requestify.get(externalURL).then(function (response) {
-    // Get the raw HTML response body
-    let html = response.body; 
-    let config = {
-        format: "A4", 
-        base: "https://cumulocity.com"
-    };
+config.urls.forEach(url => {
+    console.log(`Converting ${url} to PDF...`); 
+    
+    // Set directory and filename 
+    let dir = url.substring(url.indexOf("guides/"));
+    let filename = dir.replace(/\//g, "_") + ".pdf";
 
-    // Create the PDF
-    pdf.create(html, config).toFile('generated-pdf/generated.pdf', function (err, res) {
-      if (err) return console.log(err);
-      console.log(res);     // { filename: '...' }
-   });
-});
+    requestify.get(url).then(function (response) {
+        // Get the raw HTML response body
+        let html = response.body; 
+
+        // Create the PDF
+        pdf.create(html, options).toFile(dir + filename, function (err, res) {
+            if (err) return console.log(err);
+            console.log(res);     // { filename: '...' }
+        });
+    });
+}); 
