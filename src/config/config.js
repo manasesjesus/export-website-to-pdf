@@ -8,13 +8,31 @@ const config = {
     // The URLs to convert
     urls: [
         // Concepts guide
-        "https://cumulocity.com/guides/concepts/introduction/",
-        "https://cumulocity.com/guides/concepts/domain-model/",
-        "https://cumulocity.com/guides/concepts/interfacing-devices/",
-        "https://cumulocity.com/guides/concepts/realtime/",
-        "https://cumulocity.com/guides/concepts/applications/",
-        "https://cumulocity.com/guides/concepts/security/"
+        { 
+            saveAs: "concepts/introduction.pdf",
+            from: "https://cumulocity.com/guides/concepts/introduction/"
+        },
+        { 
+            saveAs: "concepts/domain-model.pdf",
+            from: "https://cumulocity.com/guides/concepts/domain-model/"
+        },
+        { 
+            saveAs: "concepts/interfacing-devices.pdf",
+            from: "https://cumulocity.com/guides/concepts/interfacing-devices/"
+        },
+        { 
+            saveAs: "concepts/realtime.pdf",
+            from: "https://cumulocity.com/guides/concepts/realtime/"
+        },
+        { 
+            saveAs: "concepts/applications.pdf",
+            from: "https://cumulocity.com/guides/concepts/applications/"
+        },
+        { 
+            saveAs: "concepts/security.pdf",
+            from: "https://cumulocity.com/guides/concepts/security/"
+        }        
     ]
 };
-   
+
 module.exports = config;
