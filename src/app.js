@@ -3,7 +3,6 @@
 const pdf = require("html-pdf");
 const requestify = require("requestify");
 
-
 const config  = require("./config/config");
 const options = {
     base: config.base,
