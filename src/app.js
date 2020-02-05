@@ -1,29 +1,44 @@
 "use strict";
 
-const pdf = require("html-pdf");
-const requestify = require("requestify");
+const puppeteer = require("puppeteer");
+const fs = require("fs");
 
-const config  = require("./config/config");
+const config = require("./config/config");
+
+// Format settings
 const options = {
-    base: config.base,
-    format: config.format
+    format: "A4",
+    printBackground: true,
+    margin: {
+        top: "30px",
+        bottom: "30px",
+        left: "38px",
+        right: "38px"
+    }
 };
 
-config.urls.forEach(url => {
-    console.log(`Converting ${url} to PDF...`); 
-    
-    // Set directory and filename 
-    let dir = url.substring(url.indexOf("guides/"));
-    let filename = dir.replace(/\//g, "_") + ".pdf";
+// Where the magic happens...
+console.log(`Converting ${config.urls.length} pages to PDF...`);
+console.log("You may take a coffee meanwhile...");
 
-    requestify.get(url).then(function (response) {
-        // Get the raw HTML response body
-        let html = response.body; 
+config.urls.forEach(url => {
+    (async () => {
+        const browser = await puppeteer.launch();
+        const page    = await browser.newPage();
+
+        await page.goto(url.from, {
+            waitUntil: "networkidle2"
+        });
+        await page.setViewport({ width: 1680, height: 1050 });
+
+        // Check if the directory exists, create it otherwise
+        let dir = url.saveAs.substr(0, url.saveAs.lastIndexOf("/"));
+        !fs.existsSync(dir) && fs.mkdirSync(dir, { recursive: true });
 
         // Create the PDF
-        pdf.create(html, options).toFile(dir + filename, function (err, res) {
-            if (err) return console.log(err);
-            console.log(res);     // { filename: '...' }
-        });
-    });
-}); 
+        options["path"] = url.saveAs;
+        await page.pdf(options);
+
+        await browser.close();
+    })();
+});
