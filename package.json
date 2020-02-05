@@ -23,6 +23,7 @@
   "homepage": "https://github.com/manasesjesus/export-website-to-pdf#readme",
   "dependencies": {
     "express": "^4.17.1",
+    "fs": "0.0.1-security",
     "puppeteer": "^2.0.0",
     "requestify": "^0.2.5"
   }
