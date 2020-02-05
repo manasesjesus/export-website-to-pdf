@@ -24,6 +24,6 @@
   "dependencies": {
     "express": "^4.17.1",
     "fs": "0.0.1-security",
-    "puppeteer": "^2.0.0"
+    "puppeteer": "^2.1.1"
   }
 }
