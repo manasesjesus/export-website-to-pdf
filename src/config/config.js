@@ -1,37 +1,60 @@
 "use strict";
 
+const release = "10.5.7";
 const config = {
-    // Base path that is used to load files (images, css, js) when they aren't referenced using a host
-    base: "https://cumulocity.com",
-    // Paper size
-    format: "A4",
     // The URLs to convert
     urls: [
         // Concepts guide
         { 
-            saveAs: "concepts/introduction.pdf",
+            saveAs: `guides/${release}/concepts/introduction.pdf`,
             from: "https://cumulocity.com/guides/concepts/introduction/"
         },
         { 
-            saveAs: "concepts/domain-model.pdf",
+            saveAs: `guides/${release}/concepts/domain-model.pdf`,
             from: "https://cumulocity.com/guides/concepts/domain-model/"
         },
         { 
-            saveAs: "concepts/interfacing-devices.pdf",
+            saveAs: `guides/${release}/concepts/interfacing-devices.pdf`,
             from: "https://cumulocity.com/guides/concepts/interfacing-devices/"
         },
         { 
-            saveAs: "concepts/realtime.pdf",
+            saveAs: `guides/${release}/concepts/realtime.pdf`,
             from: "https://cumulocity.com/guides/concepts/realtime/"
         },
         { 
-            saveAs: "concepts/applications.pdf",
+            saveAs: `guides/${release}/concepts/applications.pdf`,
             from: "https://cumulocity.com/guides/concepts/applications/"
         },
         { 
-            saveAs: "concepts/security.pdf",
+            saveAs: `guides/${release}/concepts/security.pdf`,
             from: "https://cumulocity.com/guides/concepts/security/"
-        }        
+        },
+
+        // Microservice SDK guide
+        {
+            saveAs: `guides/${release}/microservice-sdk/introduction.pdf`,
+            from: "https://cumulocity.com/guides/microservice-sdk/introduction/"
+        },
+        {
+            saveAs: `guides/${release}/microservice-sdk/concept.pdf`,
+            from: "https://cumulocity.com/guides/microservice-sdk/concept/"
+        },
+        {
+            saveAs: `guides/${release}/microservice-sdk/java.pdf`,
+            from: "https://cumulocity.com/guides/microservice-sdk/java/"
+        },
+        {
+            saveAs: `guides/${release}/microservice-sdk/cs.pdf`,
+            from: "https://cumulocity.com/guides/microservice-sdk/cs/"
+        },
+        {
+            saveAs: `guides/${release}/microservice-sdk/rest.pdf`,
+            from: "https://cumulocity.com/guides/microservice-sdk/rest/"
+        },
+        {
+            saveAs: `guides/${release}/microservice-sdk/examples.pdf`,
+            from: "https://cumulocity.com/guides/microservice-sdk/http/"
+        }
     ]
 };
 
