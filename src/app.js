@@ -2,7 +2,6 @@
 
 const puppeteer = require("puppeteer");
 const fs = require("fs");
-
 const config = require("./config/config");
 
 // Format settings
@@ -16,6 +15,12 @@ const options = {
         right: "38px"
     }
 };
+
+// Increase the number of listeners. Default is 10.
+if (config.urls.length > 10) {
+    //process.setMaxListeners(0);
+    require("events").EventEmitter.defaultMaxListeners = config.urls.length;
+}
 
 // Where the magic happens...
 console.log(`Converting ${config.urls.length} pages to PDF...`);
