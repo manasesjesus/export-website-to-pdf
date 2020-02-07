@@ -6,7 +6,7 @@ For instance, you may need to save tutorials or user guides to access them offli
 This program saves as PDF all the specified web pages: 
 
 **_src/config/config.js_**
-```json
+```js
 urls: [
     // Microservice SDK guide
     {
