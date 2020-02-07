@@ -1,4 +1,4 @@
-## Export a website to PDF
+# Export a website to PDF
 
 Most things that you can do manually in the browser can be automated, e.g. saving a web page as PDF.
 For instance, you may need to save tutorials or user guides to access them offline or print them (hopefully not, save trees).
